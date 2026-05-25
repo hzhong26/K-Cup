@@ -3,6 +3,7 @@ import { generateDeck } from './utils/deck';
 import { CardData, CardStatus, Theme } from './types';
 import { PlayingCard } from './components/PlayingCard';
 import { RulesSidebar } from './components/RulesSidebar';
+import { CardRuleDisplay } from './components/CardRuleDisplay';
 import { MISS_CARD_RULES } from './utils/gameRules';
 
 interface MissCardGameProps {
@@ -57,6 +58,7 @@ export const MissCardGame: React.FC<MissCardGameProps> = ({ onBack }) => {
 
   // Determine if input is blocked
   const centerCard = deck.find(c => c.status === CardStatus.Selected);
+  const activeRule = centerCard ? MISS_CARD_RULES.find(r => r.rank === centerCard.rank) : undefined;
   
   // Helper to determine card width based on screen width (matching Tailwind classes in PlayingCard)
   const getCardWidth = (screenWidth: number) => {
@@ -348,6 +350,9 @@ export const MissCardGame: React.FC<MissCardGameProps> = ({ onBack }) => {
         </div>
       )}
       
+      {/* Active Card Rule Display */}
+      <CardRuleDisplay rule={activeRule} theme={theme} />
+
       {/* Rules Sidebar */}
       <RulesSidebar isOpen={showRules} onClose={() => setShowRules(false)} theme={theme} rules={MISS_CARD_RULES} title="Miss Card Rules" />
 

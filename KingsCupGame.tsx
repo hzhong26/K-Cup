@@ -3,6 +3,7 @@ import { generateDeck } from './utils/deck';
 import { CardData, CardStatus, Theme } from './types';
 import { PlayingCard } from './components/PlayingCard';
 import { RulesSidebar } from './components/RulesSidebar';
+import { CardRuleDisplay } from './components/CardRuleDisplay';
 import { KINGS_CUP_RULES } from './utils/gameRules';
 
 interface KingsCupGameProps {
@@ -44,6 +45,7 @@ export const KingsCupGame: React.FC<KingsCupGameProps> = ({ onBack }) => {
 
   // Determine active card
   const activeCard = deck.find(c => c.status === CardStatus.Selected);
+  const activeRule = activeCard ? KINGS_CUP_RULES.find(r => r.rank === activeCard.rank) : undefined;
   
   const handleCardClick = useCallback((clickedCard: CardData) => {
     // Prevent interaction if pouring or if we are in the delay sequence
@@ -406,6 +408,9 @@ export const KingsCupGame: React.FC<KingsCupGameProps> = ({ onBack }) => {
         </div>
       )}
       
+      {/* Active Card Rule Display */}
+      <CardRuleDisplay rule={activeRule} theme={theme} />
+
       {/* Rules Sidebar */}
       <RulesSidebar isOpen={showRules} onClose={() => setShowRules(false)} theme={theme} rules={KINGS_CUP_RULES} title="King's Cup Rules" />
 
