@@ -8,43 +8,36 @@ Built with React 19 + TypeScript + Vite + Tailwind.
 
 - [Node.js](https://nodejs.org/) 18 or later (includes `npm`)
 
-## Install
+## Quick start (macOS / Linux)
+
+```bash
+git clone https://github.com/hzhong26/k-cup.git
+cd k-cup
+./install.sh
+```
+
+Open a new terminal (or `source ~/.zshrc`), then anywhere on your machine type:
+
+```bash
+play k cup
+```
+
+That's it — dependencies install on first run, the dev server starts, and your browser opens to [http://localhost:3000](http://localhost:3000). Press `Ctrl+C` to stop the server.
+
+The `install.sh` script adds a `play` function to your `~/.zshrc` (or `~/.bashrc`) with the repo path baked in. Re-running it is safe.
+
+## Manual launch (any platform)
+
+If you don't want the shortcut, or you're on Windows:
 
 ```bash
 git clone https://github.com/hzhong26/k-cup.git
 cd k-cup
 npm install
-```
-
-## Launch
-
-```bash
 npm run dev
 ```
 
-The app will be available at [http://localhost:3000](http://localhost:3000).
-
-### Optional: `play k cup` shortcut (macOS / Linux)
-
-Add this function to your `~/.zshrc` (or `~/.bashrc`) to launch the game from anywhere by typing `play k cup`:
-
-```bash
-play() {
-    local game
-    game="$(echo "$*" | tr '[:upper:]' '[:lower:]')"
-    case "$game" in
-        "k cup"|"kcup"|"kings cup"|"k-cup")
-            ( sleep 2 && open "http://localhost:3000" ) &
-            ( cd "/path/to/k-cup" && npm run dev )
-            ;;
-        *)
-            echo "Unknown game: $*"
-            ;;
-    esac
-}
-```
-
-Replace `/path/to/k-cup` with the actual path to your cloned repo, then run `source ~/.zshrc`.
+Then open [http://localhost:3000](http://localhost:3000).
 
 ## Build
 
