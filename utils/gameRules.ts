@@ -17,9 +17,9 @@ export const MISS_CARD_RULES: GameRule[] = [
   {
     rank: '2',
     title: '小姐牌',
-    desc: '当小姐，有人喝酒小姐要陪喝，一口就行',
+    desc: '当小姐，给自己起个名字。之后哪一轮有人要喝酒时叫到这个名字，小姐就要陪喝，一口就行',
     titleEn: 'Miss Card',
-    descEn: 'You become the "Miss". Whenever anyone drinks, take a sip with them — one sip is enough.',
+    descEn: 'You become the "Miss" — give yourself a name. In later rounds, whenever someone who has to drink says your name, you must drink with them (one sip is enough).',
   },
   {
     rank: '3',
@@ -46,8 +46,8 @@ export const MISS_CARD_RULES: GameRule[] = [
     rank: '6',
     title: '几颗柳树扭几扭',
     desc: '挨个往后接，说不出来的喝酒',
-    titleEn: 'Willow Tree Twist',
-    descEn: 'Chant "一颗柳树扭一扭, 两颗柳树扭两扭…" — each player adds one more around the circle. Whoever can\'t continue drinks.',
+    titleEn: 'Sally Sells Sea Shells',
+    descEn: 'Go around the circle chanting "Sally sells ? sea shells by ? sea shores", replacing each "?" with the next number each turn (1, 2, 3, …). First to stumble drinks.',
   },
   {
     rank: '7',
