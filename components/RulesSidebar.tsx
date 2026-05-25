@@ -63,8 +63,16 @@ export const RulesSidebar: React.FC<RulesSidebarProps> = ({ isOpen, onClose, the
                     {rule.rank}
                   </div>
                   <div>
-                    <h3 className={`font-bold text-sm mb-1 uppercase tracking-wide transition-colors duration-500 ${titleColor}`}>{rule.title}</h3>
+                    <h3 className={`font-bold text-sm mb-1 uppercase tracking-wide transition-colors duration-500 ${titleColor}`}>
+                      {rule.title}
+                      {rule.titleEn && (
+                        <span className={`ml-2 font-normal normal-case tracking-normal opacity-70 ${descColor}`}>· {rule.titleEn}</span>
+                      )}
+                    </h3>
                     <p className={`text-xs leading-relaxed transition-colors duration-500 ${descColor}`}>{rule.desc}</p>
+                    {rule.descEn && (
+                      <p className={`text-xs leading-relaxed italic mt-1 opacity-75 transition-colors duration-500 ${descColor}`}>{rule.descEn}</p>
+                    )}
                   </div>
                 </div>
               </div>
